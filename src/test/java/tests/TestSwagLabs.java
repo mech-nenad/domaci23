@@ -17,23 +17,23 @@ public class TestSwagLabs extends BaseTest {
         swagLabsPageInventory.addToCartButton();
 
         Assert.assertTrue(swagLabsPageInventory.getCartBadge().getText().equals("1"));
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
         swagLabsPageInventory.removeButton();
 
         Assert.assertTrue(swagLabsPageInventory.getCartButton().getText().isEmpty());
 
 
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
     }
@@ -42,39 +42,29 @@ public class TestSwagLabs extends BaseTest {
     public void logoutButton() {
         swagLabsLoginPage.login("standard_user", "secret_sauce");
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        swagLabsPageSidebar.menuBurger();
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
+        swagLabsPageSidebar.logout();
+
+
+        driver.get("https://www.saucedemo.com/inventory.html");
+
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        Assert.assertEquals(swagLabsLoginPage.getErrorMessage(), "Epic sadface: You can only access '/inventory.html' when you are logged in.");
 
-        swagLabsPageSidebar.logout();
-
-        driver.get("https://www.saucedemo.com/inventory.html");
-
-//
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        Assert.assertEquals(swagLabsPageSidebar.getMassage(),
-//                "Epic sadface: You can only access '/inventory.html' when you are logged in.");
-//
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
 
     }
+
 
 
 
